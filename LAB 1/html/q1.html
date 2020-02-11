@@ -1,0 +1,378 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>q1</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-02-02"><meta name="DC.source" content="q1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%Part 1 code</span>
+t = 0:0.01:10;
+f = 2;
+w = 2*pi*f;
+theta = pi/3;
+figure(<span class="string">'Name'</span>, <span class="string">'1a'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>); <span class="comment">% figure for 1a</span>
+y = 0.1*sin(t) + 0.2*cos(t.*w + theta);
+plot(t,y);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'x1(t) =0.1*sin(t) + 0.2*cos(t.*w + theta)'</span>);
+
+<span class="comment">%Part 2 code</span>
+
+<span class="comment">%d = 0:45:180;</span>
+figure(<span class="string">'Name'</span>, <span class="string">'1b'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>); <span class="comment">% figure for 1b</span>
+wt = t.*w;
+y = 0.1*sin(t) + 0.2*cos(wt);
+plot(t,y,<span class="string">'x'</span>);
+hold <span class="string">on</span>;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/4));
+plot(t,y,<span class="string">'+'</span>);
+hold <span class="string">on</span>;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/3));
+plot(t,y,<span class="string">'*'</span>);
+hold <span class="string">on</span>;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/2));
+plot(t,y,<span class="string">'x'</span>);
+hold <span class="string">on</span>;
+y = 0.1*sin(t) + 0.2*cos(wt+pi);
+plot(t,y,<span class="string">'.'</span>);
+hold <span class="string">on</span>;
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'x1(t) =0.1*sin(t) + 0.2*cos(t.*w + theta)'</span>);
+legend( <span class="string">'0.1*sin(t) + 0.2*cos(wt)'</span>,<span class="string">'0.1*sin(t) + 0.2*cos(wt+(pi/4))'</span>,<span class="string">'0.1*sin(t) + 0.2*cos(wt+(pi/2))'</span>, <span class="string">'0.1*sin(t) + 0.2*cos(wt+pi)'</span>);
+
+
+<span class="comment">%part C</span>
+
+<span class="comment">% No, because the ratio of T1 and T2 is an irrational number.</span>
+
+<span class="comment">%Q2</span>
+
+t = 0:0.01:10;
+figure(<span class="string">'Name'</span>, <span class="string">'2a'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>) <span class="comment">%grapg</span>
+et = exp(t.*-0.1*pi);
+plot(t,et,<span class="string">'r:'</span>);
+hold <span class="string">on</span>;
+xt = et.*cos(t.*2*pi);
+plot(t,xt);
+hold <span class="string">on</span>;
+legend(<span class="string">'et'</span>,<span class="string">'xt'</span>)
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'x(t)'</span>);
+figure(<span class="string">'Name'</span>, <span class="string">'2b'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>);
+et = exp(t.*-0.1*pi);
+plot(t,et,<span class="string">'r:'</span>);
+hold <span class="string">on</span>;
+xt = et.*cos(t.*2*pi);
+plot(t,xt);
+hold <span class="string">on</span>;
+yt = et.*cos(t.*2*pi).*heaviside(t-2);
+plot(t,yt);
+hold <span class="string">on</span>;
+legend(<span class="string">'et'</span>,<span class="string">'xt'</span>,<span class="string">'yt'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'x(t)'</span>);
+<span class="comment">%Q3</span>
+
+t = 0:0.01:10;
+r1 = complex(1,-3);
+r2 = (10 * 7i) / complex(10,7);
+z = r1 + r2;
+f = 1/0.2;
+w = 2*pi*f;
+v = 50*sin(t.*w);
+
+is = 50/z;
+[phase_angle,magnitude] = cart2pol(real(is),imag(is));
+
+
+figure(<span class="string">'Name'</span>, <span class="string">'3'</span>, <span class="string">'NumberTitle'</span>, <span class="string">'off'</span>);
+plot(t,v,<span class="string">'r-'</span>);
+hold <span class="string">on</span>;
+plot(t,is);
+xlim([0 0.4])
+ylabel(<span class="string">'V'</span>)
+xlabel(<span class="string">'Time (t)'</span>);
+legend(<span class="string">'Vs'</span>,<span class="string">'Is'</span>)
+
+<span class="comment">%Q5</span>
+
+<span class="comment">%a)</span>
+t = -5:0.01:5;
+
+f = -3*sign(t).*exp(t.*(2*pi*1i+0.25));
+
+r = real(f);
+i = imag(f);
+
+subplot(2,1,1)
+plot(t,r);
+legend(<span class="string">'Real'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'X(t)'</span>);
+
+subplot(2,1,2)
+plot(t,i);
+legend(<span class="string">'Imaginary'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'X(t)'</span>);
+
+x_new = f.*rectangularPulse(t.*0.25);
+
+r = real(x_new);
+i = imag(x_new);
+
+
+subplot(2,1,1)
+plot(t,r);
+legend(<span class="string">'Real'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'X(t)'</span>);
+
+subplot(2,1,2)
+plot(t,i);
+legend(<span class="string">'Imaginary'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'X(t)'</span>);
+
+
+<span class="comment">%Q6</span>
+
+syms <span class="string">x(t)</span>
+x(t) = piecewise(-2&lt;=t&lt;0, 0.25*t, 0&lt;=t&lt;0.5, 1.5, 0.5&lt;=t&lt;2, -t+2);
+
+fplot(x(t));
+hold <span class="string">on</span>
+grid <span class="string">on</span>
+x2 = 2*x(t+1);
+hold <span class="string">on</span>
+
+fplot(x2);
+
+grid <span class="string">on</span>
+</pre><pre class="codeoutput">Warning: Imaginary parts of complex X and/or Y arguments ignored 
+</pre><img vspace="5" hspace="5" src="q1_01.png" alt=""> <img vspace="5" hspace="5" src="q1_02.png" alt=""> <img vspace="5" hspace="5" src="q1_03.png" alt=""> <img vspace="5" hspace="5" src="q1_04.png" alt=""> <img vspace="5" hspace="5" src="q1_05.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Part 1 code
+t = 0:0.01:10;
+f = 2;
+w = 2*pi*f;
+theta = pi/3;
+figure('Name', '1a', 'NumberTitle', 'off'); % figure for 1a
+y = 0.1*sin(t) + 0.2*cos(t.*w + theta);
+plot(t,y);
+xlabel('Time (t)');
+ylabel('x1(t) =0.1*sin(t) + 0.2*cos(t.*w + theta)');
+
+%Part 2 code
+
+%d = 0:45:180;
+figure('Name', '1b', 'NumberTitle', 'off'); % figure for 1b
+wt = t.*w;
+y = 0.1*sin(t) + 0.2*cos(wt);
+plot(t,y,'x');
+hold on;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/4));
+plot(t,y,'+');
+hold on;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/3));
+plot(t,y,'*');
+hold on;
+y = 0.1*sin(t) + 0.2*cos(wt+(pi/2));
+plot(t,y,'x');
+hold on;
+y = 0.1*sin(t) + 0.2*cos(wt+pi);
+plot(t,y,'.');
+hold on;
+xlabel('Time (t)');
+ylabel('x1(t) =0.1*sin(t) + 0.2*cos(t.*w + theta)');
+legend( '0.1*sin(t) + 0.2*cos(wt)','0.1*sin(t) + 0.2*cos(wt+(pi/4))','0.1*sin(t) + 0.2*cos(wt+(pi/2))', '0.1*sin(t) + 0.2*cos(wt+pi)');
+
+
+%part C
+
+% No, because the ratio of T1 and T2 is an irrational number.
+
+%Q2 
+
+t = 0:0.01:10;
+figure('Name', '2a', 'NumberTitle', 'off') %grapg
+et = exp(t.*-0.1*pi);
+plot(t,et,'r:');
+hold on;
+xt = et.*cos(t.*2*pi);
+plot(t,xt);
+hold on;
+legend('et','xt')
+xlabel('Time (t)');
+ylabel('x(t)');
+figure('Name', '2b', 'NumberTitle', 'off');
+et = exp(t.*-0.1*pi);
+plot(t,et,'r:');
+hold on;
+xt = et.*cos(t.*2*pi);
+plot(t,xt);
+hold on;
+yt = et.*cos(t.*2*pi).*heaviside(t-2);
+plot(t,yt);
+hold on;
+legend('et','xt','yt');
+xlabel('Time (t)');
+ylabel('x(t)');
+%Q3
+
+t = 0:0.01:10;
+r1 = complex(1,-3);
+r2 = (10 * 7i) / complex(10,7);
+z = r1 + r2;
+f = 1/0.2;
+w = 2*pi*f;
+v = 50*sin(t.*w);
+
+is = 50/z;
+[phase_angle,magnitude] = cart2pol(real(is),imag(is));
+
+
+figure('Name', '3', 'NumberTitle', 'off');
+plot(t,v,'r-');
+hold on;
+plot(t,is);
+xlim([0 0.4])
+ylabel('V')
+xlabel('Time (t)');
+legend('Vs','Is')
+
+%Q5
+
+%a)
+t = -5:0.01:5;
+
+f = -3*sign(t).*exp(t.*(2*pi*1i+0.25));
+
+r = real(f);
+i = imag(f);
+
+subplot(2,1,1)
+plot(t,r);
+legend('Real');
+xlabel('Time (t)');
+ylabel('X(t)');
+
+subplot(2,1,2)
+plot(t,i);
+legend('Imaginary');
+xlabel('Time (t)');
+ylabel('X(t)');
+
+x_new = f.*rectangularPulse(t.*0.25);
+
+r = real(x_new);
+i = imag(x_new);
+
+
+subplot(2,1,1)
+plot(t,r);
+legend('Real');
+xlabel('Time (t)');
+ylabel('X(t)');
+
+subplot(2,1,2)
+plot(t,i);
+legend('Imaginary');
+xlabel('Time (t)');
+ylabel('X(t)');
+
+
+%Q6
+
+syms x(t)
+x(t) = piecewise(-2<=t<0, 0.25*t, 0<=t<0.5, 1.5, 0.5<=t<2, -t+2);
+
+fplot(x(t));
+hold on
+grid on
+x2 = 2*x(t+1);
+hold on
+
+fplot(x2);
+
+grid on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
