@@ -1,0 +1,5 @@
+t = linspace(0,1);
+y = 5*exp(t.*-20);
+
+subplot(2,1,2);
+plot(t,y);
