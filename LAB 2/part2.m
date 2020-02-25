@@ -1,16 +1,9 @@
-t = linspace(0,0.5);
-y = 5*exp(t.*-20);
+tspan = [0 2];
+y0 = 5;
+[t,y] = ode23(@DE1, tspan, y0);
+subplot(2,1,1)
+plot(t,y)
 
-subplot(2,1,1);
-title('Zero Input Response of LR Circuit')
-plot(t,y);
-ylabel('y_z_i(t)');
-xlabel('Time (t)');
-
-yzs = y+1;
-subplot(2,1,2);
-title('Total Output Response of LR Circuit')
-plot(t,yzs);
-ylim([0 6])
-ylabel('y_z_s(t)');
-xlabel('Time (t)');
+[t,y] = ode23(@DE2, tspan, y0);
+subplot(2,1,2)
+plot(t,y)

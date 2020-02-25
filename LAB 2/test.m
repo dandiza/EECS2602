@@ -1,4 +1,7 @@
-tspan = [0 5];
-y0 = 5;
-[t,y] = ode23(@(t,y) -20*y, tspan, y0);
+tspan = linspace(0,2);
+y0 = 3;
+[t,y] = ode23(@DE3, tspan, y0);
+subplot(2,1,1)
 plot(t,y)
+
+
