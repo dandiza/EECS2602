@@ -1,0 +1,372 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>lab2</title><meta name="generator" content="MATLAB 9.7"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-02-24"><meta name="DC.source" content="lab2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">part A</a></li><li><a href="#2">part B</a></li><li><a href="#3">part C</a></li><li><a href="#4">Part D</a></li><li><a href="#5">Part 2</a></li><li><a href="#6">Part 3</a></li><li><a href="#7">Part 4</a></li><li><a href="#8">Part 5</a></li></ul></div><h2 id="1">part A</h2><pre class="codeinput">syms <span class="string">m(t)</span>
+syms <span class="string">c(t)</span>
+syms <span class="string">s(t)</span>
+syms <span class="string">m_1(t)</span>
+
+m(t) = 3*cos(2*pi*1000*t);
+c(t) = 10*cos(2*pi*20000*t);
+
+m_1(t) = (0.2*m(t)) + 1;
+
+s(t) = m_1(t) * c(t);
+
+figure(1)
+subplot(2,1,1)
+fplot(m,[0 0.002]);
+legend(<span class="string">'m(t)'</span>);
+title(<span class="string">'Intelligent Signal'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'Amplitude (V)'</span>);
+
+subplot(2,1,2)
+fplot(s, [0 0.002]);
+legend(<span class="string">'s(t)'</span>);
+title(<span class="string">'AM Signal'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'Amplitude (V)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_01.png" alt=""> <h2 id="2">part B</h2><pre class="codeinput">m_1(t) = (0.1*m(t)) + 1;
+
+s(t) = m_1(t) * c(t);
+
+figure(2)
+
+subplot(2,1,1)
+fplot(m,[0 0.002]);
+legend(<span class="string">'m(t)'</span>);
+title(<span class="string">'Intelligent Signal'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'Amplitude (V)'</span>);
+
+subplot(2,1,2)
+fplot(s, [0 0.002]);
+legend(<span class="string">'s(t)'</span>);
+title(<span class="string">'AM Signal'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'Amplitude (V)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_02.png" alt=""> <h2 id="3">part C</h2><pre>   The system is time invariant cause the shifting in the input has the
+   effect with shifting the output.</pre><h2 id="4">Part D</h2><pre class="codeinput">syms <span class="string">x_1(t)</span>
+syms <span class="string">x_2(t)</span>
+syms <span class="string">c_1(t)</span>
+syms <span class="string">c_2(t)</span>
+
+x_1(t) = 3*cos(2*pi*3000*t);
+x_2(t) = 5*cos(2*pi*2000*t);
+
+c_1(t) = 5*cos(2*pi*20000*t);
+c_2(t) = 10*sin(2*pi*20000*t);
+
+x_1(t) = 0.2*x_1(t) + 1;
+x_2(t) = 0.3*x_2(t) + 1;
+
+s(t) = (x_1(t)*c_1(t)) + (x_2(t)*c_2(t));
+st = 2.5 / 1000;
+figure(3)
+
+fplot(s, [0 0.0025]);
+legend(<span class="string">'s(t)'</span>);
+title(<span class="string">'Quadriture Amplitude Modulation (QAM)'</span>);
+xlabel(<span class="string">'Time (t)'</span>);
+ylabel(<span class="string">'Amplitude (V)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_03.png" alt=""> <h2 id="5">Part 2</h2><pre class="codeinput">tspan = [0 2];
+y0 = 5;
+[t,y] = ode23(@DE1, tspan, y0);
+figure(4)
+subplot(2,1,1)
+plot(t,y)
+title(<span class="string">'Zero-Input Response'</span>);
+xlabel(<span class="string">'time'</span>);
+ylabel(<span class="string">'y(t) (Volts)'</span>);
+
+
+[t,y] = ode23(@DE2, tspan, y0);
+subplot(2,1,2)
+plot(t,y)
+title(<span class="string">'Output Response'</span>);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'y(t) (V)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_04.png" alt=""> <h2 id="6">Part 3</h2><pre class="codeinput">tspan = linspace(0,15);
+y0 = 5;
+[t,y] = ode23(@DE3, tspan, y0);
+figure(5)
+subplot(3,1,1)
+plot(t,y)
+title(<span class="string">'Zero-Input Response'</span>);
+xlabel(<span class="string">'time'</span>);
+ylabel(<span class="string">'y(t) (Volts)'</span>);
+
+
+[t,y] = ode23(@DE4, tspan, y0);
+subplot(3,1,2)
+plot(t,y)
+title(<span class="string">'Output Response'</span>);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'y(t) (V)'</span>);
+
+y0 = 10;
+[t,y] = ode23(@DE5, tspan, y0);
+subplot(3,1,3)
+plot(t,y)
+title(<span class="string">'Output Response'</span>);
+xlabel(<span class="string">'Time (s)'</span>);
+ylabel(<span class="string">'y(t) (V)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_05.png" alt=""> <h2 id="7">Part 4</h2><pre class="codeinput">tspan = linspace(0,30);
+y0 = [1,8];
+[t,y] = ode23(@DE6, tspan, y0);
+figure(6)
+subplot(2,1,1)
+plot(t,y(:,1))
+title(<span class="string">'Zero-Input Response'</span>);
+xlabel(<span class="string">'time'</span>);
+ylabel(<span class="string">'y(t) (Volts)'</span>);
+
+[t,y] = ode23(@DE7, tspan, y0);
+subplot(2,1,2)
+plot(t,y(:,1))
+title(<span class="string">'Zero-Input Response'</span>);
+xlabel(<span class="string">'time'</span>);
+ylabel(<span class="string">'y(t) (Volts)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_06.png" alt=""> <h2 id="8">Part 5</h2><pre class="codeinput">tspan = linspace(0,30);
+[t,y] = ode23(@DE8, tspan, y0);
+figure(7)
+plot(t,y(:,1))
+title(<span class="string">'Zero-Input Response'</span>);
+xlabel(<span class="string">'time'</span>);
+ylabel(<span class="string">'y(t) (Volts)'</span>);
+</pre><img vspace="5" hspace="5" src="lab2_07.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2019b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% part A
+
+syms m(t)
+syms c(t)
+syms s(t)
+syms m_1(t)
+
+m(t) = 3*cos(2*pi*1000*t);
+c(t) = 10*cos(2*pi*20000*t);
+
+m_1(t) = (0.2*m(t)) + 1;
+
+s(t) = m_1(t) * c(t);
+
+figure(1)
+subplot(2,1,1)
+fplot(m,[0 0.002]);
+legend('m(t)');
+title('Intelligent Signal');
+xlabel('Time (t)');
+ylabel('Amplitude (V)');
+
+subplot(2,1,2)
+fplot(s, [0 0.002]);
+legend('s(t)');
+title('AM Signal');
+xlabel('Time (t)');
+ylabel('Amplitude (V)');
+
+%% part B
+
+m_1(t) = (0.1*m(t)) + 1;
+
+s(t) = m_1(t) * c(t);
+
+figure(2)
+
+subplot(2,1,1)
+fplot(m,[0 0.002]);
+legend('m(t)');
+title('Intelligent Signal');
+xlabel('Time (t)');
+ylabel('Amplitude (V)');
+
+subplot(2,1,2)
+fplot(s, [0 0.002]);
+legend('s(t)');
+title('AM Signal');
+xlabel('Time (t)');
+ylabel('Amplitude (V)');
+
+%% part C
+%     The system is time invariant cause the shifting in the input has the
+%     effect with shifting the output.
+
+
+%% Part D
+
+syms x_1(t)
+syms x_2(t)
+syms c_1(t)
+syms c_2(t)
+
+x_1(t) = 3*cos(2*pi*3000*t);
+x_2(t) = 5*cos(2*pi*2000*t);
+
+c_1(t) = 5*cos(2*pi*20000*t);
+c_2(t) = 10*sin(2*pi*20000*t);
+
+x_1(t) = 0.2*x_1(t) + 1;
+x_2(t) = 0.3*x_2(t) + 1;
+
+s(t) = (x_1(t)*c_1(t)) + (x_2(t)*c_2(t));
+st = 2.5 / 1000;
+figure(3)
+
+fplot(s, [0 0.0025]);
+legend('s(t)');
+title('Quadriture Amplitude Modulation (QAM)');
+xlabel('Time (t)');
+ylabel('Amplitude (V)');
+
+%% Part 2
+
+tspan = [0 2];
+y0 = 5;
+[t,y] = ode23(@DE1, tspan, y0);
+figure(4)
+subplot(2,1,1)
+plot(t,y)
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
+
+
+[t,y] = ode23(@DE2, tspan, y0);
+subplot(2,1,2)
+plot(t,y)
+title('Output Response');
+xlabel('Time (s)');
+ylabel('y(t) (V)');
+
+%% Part 3 
+
+tspan = linspace(0,15);
+y0 = 5;
+[t,y] = ode23(@DE3, tspan, y0);
+figure(5)
+subplot(3,1,1)
+plot(t,y)
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
+
+
+[t,y] = ode23(@DE4, tspan, y0);
+subplot(3,1,2)
+plot(t,y)
+title('Output Response');
+xlabel('Time (s)');
+ylabel('y(t) (V)');
+
+y0 = 10;
+[t,y] = ode23(@DE5, tspan, y0);
+subplot(3,1,3)
+plot(t,y)
+title('Output Response');
+xlabel('Time (s)');
+ylabel('y(t) (V)');
+
+%% Part 4
+
+tspan = linspace(0,30);
+y0 = [1,8];
+[t,y] = ode23(@DE6, tspan, y0);
+figure(6)
+subplot(2,1,1)
+plot(t,y(:,1))
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
+
+[t,y] = ode23(@DE7, tspan, y0);
+subplot(2,1,2)
+plot(t,y(:,1))
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
+
+%% Part 5
+
+tspan = linspace(0,30);
+[t,y] = ode23(@DE8, tspan, y0);
+figure(7)
+plot(t,y(:,1))
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

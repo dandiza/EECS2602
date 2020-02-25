@@ -1,7 +1,7 @@
-tspan = linspace(0,2);
-y0 = 3;
-[t,y] = ode23(@DE3, tspan, y0);
-subplot(2,1,1)
-plot(t,y)
+tspan = linspace(0,30);
 
-
+[t,y] = ode23(@DE8, tspan, y0);
+plot(t,y(:,1))
+title('Zero-Input Response');
+xlabel('time');
+ylabel('y(t) (Volts)');
