@@ -1,9 +1,5 @@
-%% Part 1
-  
-  % A)
-  
   p = 2;
-  t = -4:0.01:4;
+  t = -10:0.1:10;
   V_s = 0;
   a_o = 2/pi;
   w_o = pi;
@@ -14,11 +10,6 @@ end
 
 figure(1)
 V_s = V_s + a_o;
-plot(t,V_s)
+stem(V_s)
 xlabel("Time");
 ylabel("X(t)");
-
-
-% B)
-
-
