@@ -1,4 +1,4 @@
-%% Part 1
+%% EXERCISE 1
   
   % A)
   
@@ -72,7 +72,7 @@ legend('x(t)','y(t)');
 
 
 
-%% LAB EXERCISE 2
+%% EXERCISE 2
 
 % I've the the Dn formula to get fourier series of the graph
 
@@ -130,7 +130,7 @@ ylabel("y_2(t)");
 xlabel("Time (t)");
 grid on
 
-%% LAB EXERCISE 3
+%% EXERCISE 3
 
 figure(5)
 
@@ -186,6 +186,32 @@ grid;
 %% EXERCISE 5
 
 % part a
+
+  figure(8)
+  r1 = 2;
+  l = 0.001;
+  c = 0.00001;
+  s = tf('s');
+  s1 = 1 / (s*(s*(l*c)+(l/r1))+1);
+  bode(s1, {0.001, 100});
+  title('H(w)');
+    grid;
+    
+    
+   % part b
+     figure(9)
+  r1 = 200;
+  l = 0.001;
+  c = 0.00001;
+  s = tf('s');
+  s1 = 1 / (s*(s*(l*c)+(l/r1))+1);
+  bode(s1, {0.001, 100});
+  title('H(w)');
+    grid;
+   
+   
+  
+  
 
 
 
