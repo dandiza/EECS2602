@@ -1,0 +1,8 @@
+%figure(2)
+rp = -20*log10(0.9);
+rs = -20*log10(0.15);
+wp = 15;
+ws = 20;
+
+[n,wn] = ellipord(wp,ws,rp,rs,'s');
+[x,y]=ellip(n,rp,rs,wn,'s');

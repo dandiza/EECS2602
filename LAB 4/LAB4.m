@@ -47,8 +47,6 @@ rs = -20*log10(0.15);
 wp = 15;
 ws = 20;
 
-[n,wc]=cheb1ord(wp,ws,rp,rs,'s');
-[num,den]=cheby1(n,rs,ws,'s');
-s1 = tf(num,den);
+
 
 
